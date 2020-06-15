@@ -19,7 +19,7 @@ act <- read.csv(filenames)
 ```
 
 ## What is mean total number of steps taken per day?
-```{r}
+```{r echo=TRUE}
 library(ggplot2)
 dailyTot <- tapply(act$steps, act$date, sum, na.rm=TRUE)
 qplot(dailyTot, main="Daily Total Number of Steps", xlab="Steps")
@@ -28,14 +28,14 @@ summary(dailyTot)
 The mean total number of steps per day is 9354 steps, and the median is 10395.
 
 ## What is the average daily activity pattern?
-```{r}
+```{r echo=TRUE}
 dailyAvg <- tapply(act$steps, act$interval, mean, na.rm=TRUE)
 qplot(act$interval[1:288], dailyAvg, geom="line", main="Daily Mean Number of Steps", xlab="Interval", ylab="Mean # of Steps")
 ```
 
 
 ## Imputing missing values
-```{r}
+```{r echo=TRUE}
 sum(is.na(act$steps))
 sum(is.na(act$date))
 sum(is.na(act$interval))
@@ -43,7 +43,7 @@ sum(is.na(act$interval))
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
-```{r}
+```{r echo=TRUE}
 # use the dataset with the filled-in missing values for this part
 act$dayOfWeek <- sapply(lapply(act$date, as.Date), weekdays)
 act$isWeekday <- factor(act$dayOfWeek %in% c("Saturday", "Sunday"), labels = c("weekday", "weekend"))
