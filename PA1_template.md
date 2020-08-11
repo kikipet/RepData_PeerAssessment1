@@ -126,7 +126,7 @@ The mean and median number of steps daily are both now 10766 steps.
 actM$dayOfWeek <- sapply(lapply(actM$date, as.Date), weekdays)
 actM$isWeekday <- factor(actM$dayOfWeek %in% c("Saturday", "Sunday"), labels = c("weekday", "weekend"))
 
-par(mfrow=c(1,2))
+par(mfrow=c(2,1))
 plot(intervals, tapply(subset(actM, isWeekday=="weekday")$steps, subset(actM, isWeekday=="weekday")$interval, mean, na.rm=TRUE), "l", main="Weekday Step Counts", 
   xlab="Interval", ylab="Number of Steps", ylim=c(0, 230))
 plot(intervals, tapply(subset(actM, isWeekday=="weekend")$steps, subset(actM, isWeekday=="weekend")$interval, mean, na.rm=TRUE), "l", main="Weekend Step Counts", 
