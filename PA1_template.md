@@ -115,8 +115,8 @@ qplot(dailyTotNew, bins=24, main="Daily Total Number of Steps", xlab="Steps", yl
 
 ![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
-```act$steps``` had missing values. These values were approximated as the average number of steps at that time of day across all days. 
-The mean and median number of steps daily are both now 10766 steps.
+```act$steps``` had 2304 missing values. These values were approximated as the average number of steps at that time of day across all days. 
+The mean and median number of steps daily are both now 10766 steps. The mean increased because the imputted step numbers were larger.
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
